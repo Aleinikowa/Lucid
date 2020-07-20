@@ -1,85 +1,6 @@
-@color-blue: #008ed6;
-@color-bg-grey: #f2f2f2;
-@color-text-grey: #999999;
-@color-bg-black: #15141a;
-@color-text-black: #1a1a1a; 
-@color-border-grey: #e0e0e0;
+@import 'main-style.less';
 
-.max-width-style() {
-    max-width: 1440px;
-    min-width: 500px;
-    margin: 0 auto;
-}
-.link-style() {
-    text-decoration: none;
-    cursor: pointer;
-    color: white;
-}
-.button-style() {
-    font-size: 14px;
-    text-transform: uppercase;
-    color: white;
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: 1px solid @color-text-grey;
-}
-.button-blue() {
-    background-color: @color-blue;
-    border: 1px solid @color-blue;
-}
-.button-white() {
-    background-color: @color-bg-black;
-    border: 1px solid @color-text-grey;
-}
-.border-style() {
-    border-bottom: 1px solid @color-border-grey ;
-}
-.two-line-left() {
-    padding: 15px 0 30px;
-    background: url(images/line.png) no-repeat left bottom;
-}
-.two-line-center() {
-    background: url(images/line.png) no-repeat center bottom;
-    padding: 15px 0 30px;
-}
-* {
-    margin: 0;
-    padding: 0;
-}
-body {
-    font-family: 'Source Sans Pro', sans-serif;
-    min-width: 500px;
-}
-h1 {
-    color: white;
-    font-weight: 600;
-    font-size: 48px;
-}
-h2 {
-    font-size: 36px;
-    font-weight: 500;
-}
-h3 {
-    font-size: 24px;
-    font-weight: 500;
-}
-h4 {
-    font-size: 18px;
-    font-weight: 200;
-    color: @color-text-grey;
-}
-h5 {
-    font-weight: normal;
-    font-size: 16px;
-}
-h6 {
-    font-size: 14px;
-    color: @color-blue;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.wrapper-one {
+.block-main {
     .max-width-style();
     height: 640px;
     background: url(images/block1-bg.jpg) no-repeat center center;
@@ -89,17 +10,17 @@ h6 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .header__logo {
-            margin-left: 130px;
+        &__logo {
+            margin-left: @margin-side;
             width: 120px;
             height: 30px;
             background: url(images/logo.png) no-repeat left center;
         }
-        .header__menu {
-            margin-right: 130px;
+        &__menu {
+            margin-right: @margin-side;
             width: auto;
             height: 70px;
-            .nav {
+            &-nav {
                 padding-top: 20px;
                 line-height: 30px;
                 margin: 0;
@@ -133,37 +54,38 @@ h6 {
     .content {
         max-width: 500px;
         height: auto;
-        margin: 100px 130px 0;
-        .content__text {
-            .main {
-                margin: 10px 0;
+        .margin-side-style();
+        padding:  100px 0 0;
+        &__text {
+            &-main {
+               margin: 10px 0 20px;
             }
-            .description {
+            &-description {
                 margin-bottom: 65px;
             }
         }
         .content__button {
-            .left {
+            &-left {
                 .link-style();
                 .button-style();
                 margin-right: 10px;
             }  
-            .left:hover {
+            &-left:hover {
                 transition: 0.2s ease-out;
                 .button-blue();
             }
-            .right {
+            &-right {
                 .link-style();
                 .button-style();
             }
-            .right:hover {
+            &-right:hover {
                 transition: 0.2s ease-out;
                 .button-blue();
             }  
         }
     }
 }
-.wrapper-two {
+.block-quality {
     .max-width-style();
     height: auto;
     .border-style();
@@ -171,19 +93,20 @@ h6 {
         .two-line-center();
         margin-top: 60px;
         text-align: center;
-        .main-text__top {
+        &__top {
             margin-bottom: 20px;
         }
     }
     .main-content {
         display: flex;
         flex-wrap: nowrap;
-        margin: 70px 130px;
+        justify-content: center;
+        .margin-side-style();
         .advantages {
             flex: 0 0 240px;
             text-align: center;
             height: auto;
-            padding: 0 10px;
+            padding: 50px 10px 70px;
             p {
                 display: inline-block;
                 height: 90px;
@@ -198,32 +121,32 @@ h6 {
             h4 {
                 padding: 5px;
             }
-            .advantages__icon {
+            &__icon {
                 margin-bottom: 30px;
             }
-            .advantages__txt {
+            &__txt {
                 margin-bottom: 10px;
             }
         }
     }
 }
-.wrapper-three {
+.block-device {
     .max-width-style();
     height: 700px;
     display: flex;
     align-items: center;
     .main-image {
-        margin-left: 150px;
+        margin-left: @margin-side + 20;
     }
     .main-text {
         margin-left: 100px;
         height: auto;
         width: 485px;
-        .main-text__bottom {
+        &__bottom {
             .two-line-left(); 
             margin-bottom: 30px;
         }
-        .main-text__description {
+        &__description {
             font-weight: 400;
             color: black;
             padding-bottom: 7px;
@@ -234,31 +157,29 @@ h6 {
                 text-align: center;
                 margin-right: 10px;
             }
-
         }
         .one {
             margin-top: 30px;
         }
     }
 }
-.wrapper-four {
+.block-customization {
     .max-width-style();
     height: 545px;
-    background: url(./images/iPhone.png) no-repeat 98% center;
-    background-color: @color-bg-grey;
+    background: url(./images/iPhone.png) no-repeat 98% center @color-bg-grey;
     display: flex;
     align-items: center;
     .main-text {
-        margin-left: 150px;
+        margin-left: @margin-side + 20;
         padding-right: 20px;
         flex-basis: 400px;
-        .main-text__bottom {
+        &__bottom {
             .two-line-left();
             margin-bottom: 30px;
         }
     }
 }
-.wrapper-five {
+.block-reviews{
     .max-width-style();
     height: 600px;
     background: url(images/block5-bg.jpg) no-repeat center center;
@@ -268,7 +189,7 @@ h6 {
         color: white;
         .main-text__bottom {
             .two-line-center();
-            margin-bottom: 100px;
+            margin-bottom: @margin-side - 30;
         }
     }
     .main-content {
@@ -276,13 +197,13 @@ h6 {
         color: white;
         display: flex;
         .commentary {
-            .commentary__text {
+            &_text {
                 margin-bottom: 30px;
                 h3 {
                     font-weight: 200;
                 }
             }
-            .commentary__user {
+            &__user {
                 img {
                     border-radius: 50%;
                     display: inline;
@@ -303,7 +224,7 @@ h6 {
         }
     }
 }
-.wrapper-six {
+.block-feedback {
     .max-width-style();
     height: auto;
     background-color: @color-bg-black;
@@ -311,30 +232,30 @@ h6 {
         font-size: 32px;
         display: inline-block;
         line-height: 170px;
-        margin: 0 100px 0 130px;
+        .margin-side-style();
         color: white;
        span {
            font-weight: 200;
        } 
     }
-    .wrapper-six__btn-left {
+    &__btn-left {
         .link-style();
         .button-style();
     }
-    .wrapper-six__btn-left:hover {
+    &__btn-left:hover {
         .button-blue();
         transition: 0.2s ease-out;
     } 
-    .wrapper-six__btn-right {
+    &__btn-right {
         .link-style();
         .button-style();
     }  
-    .wrapper-six__btn-right:hover {
+    &__btn-right:hover {
         .button-blue();
         transition: 0.2s ease-out;
     }
 }
-.wrapper-seven {
+.block-orders {
     .max-width-style();
     height: 780px;
     .main-text {
@@ -354,7 +275,7 @@ h6 {
                 line-height: 70px;
                 .border-style();
             }
-            .card__price {
+            &__price {
                 height: 150px;
                 .border-style();
                 p {
@@ -373,7 +294,7 @@ h6 {
                 }
 
             }
-            .card__btn {
+            &__btn {
                 height: 270px;
                 h4 {
                     padding: 50px 30px;
@@ -390,15 +311,14 @@ h6 {
                     text-transform: uppercase;
                     border: 1px solid @color-border-grey;
                     padding: 20px 40px;
-
                 }
             }
         }
-        .card:hover {
+        &:hover {
             h3 {
                 color: @color-blue;
             }
-            .card__price {
+            &__price {
                 background-color: @color-blue;
                 p {
                     color: white;
@@ -407,7 +327,7 @@ h6 {
                     }
                 }
             }
-            .card__btn {
+            &__btn {
                 a {
                     background-color: @color-blue;
                     color: white;
@@ -417,7 +337,7 @@ h6 {
     }
 
 }
-.wrapper-eight {
+.block-contacts {
     height: 700px;
     .max-width-style();
     background-color: @color-bg-grey;
@@ -430,7 +350,7 @@ h6 {
     .contact {
         display: flex;
         justify-content: space-around;
-        .contact__block {
+        &__block {
             width: 200px;
             height: auto;
             .icon {
@@ -451,7 +371,7 @@ h6 {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        .form__text {
+        &__text {
             flex:  0 0 300px;
             margin-top: -50px;
             .left  {
@@ -466,7 +386,7 @@ h6 {
                 background-color: @color-bg-black;
             }
         }
-        .form__message {
+        &__message {
             flex:  0 0 300px;
             .right {
                 text-transform: uppercase;
@@ -500,14 +420,14 @@ h6 {
         }
     } 
 }
-.wrapper-nine {
+.block-map {
     .max-width-style();
     height: 370px;
     background: url(images/map-bg.jpg) no-repeat center center;
 }
 
 @media only screen and (max-width : 1200px) {
-    .wrapper-two {
+    .block-quality {
         .main-text {
             margin-top: 35px;
         }
@@ -519,7 +439,7 @@ h6 {
             }
         }
     }
-    .wrapper-three {
+    .block-device {
         .main-image {
             margin-left: 5px;
         }
@@ -527,7 +447,7 @@ h6 {
             margin-right: 10px;
         }
     }
-    .wrapper-four {
+    .block-customization{
         background-blend-mode: soft-light;
         background-position: center center;
         .main-text {
@@ -535,9 +455,9 @@ h6 {
             margin: 0 40px;
         }
     }
-    .wrapper-five {
+    .block-reviews {
         .main-text {
-            .main-text__bottom {
+            &__bottom {
                 margin-bottom: 25px;
             }
         }
@@ -547,27 +467,27 @@ h6 {
             }
         }
     }
-    .wrapper-six {
+    .block-feedback {
         h2 {
             margin: 0 20px;
         }
     }
 }
 @media only screen and (max-width : 970px) {
-    .wrapper-six {
+    .block-feedback {
         text-align: center;
         h2 {
             display: block;
             line-height: 130px;
         }
-        .wrapper-six__btn-left, .wrapper-six__btn-right {
+        &__btn-left, &__btn-right {
             margin-top: -10px;
             display: inline-block;
             margin-bottom: 30px;
         }
 
     }
-    .wrapper-seven {
+    .block-orders {
         height: auto;
         .main-text {
             margin: 35px 0;
@@ -583,9 +503,9 @@ h6 {
     
 }
 @media only screen and (max-width : 870px) {
-    .wrapper-one {
+    .block-main {
         .header {
-            .header__menu {
+            &__menu {
                 nav {
                     display: none;
                 }
@@ -594,24 +514,25 @@ h6 {
     }
 }
 @media only screen and (max-width : 790px) {
-    .wrapper-one {
+    .block-main {
         .header {
-            .header__logo {
+            &__logo {
                 margin-left: 40px;
             }
         }
         .content {
-            margin: 70px 0 10px 40px;
+            padding: 0 50px 0 0;
+            margin: 30px 0 10px 40px;
         }
     }
-    .wrapper-two {
+    .block-quality {
         .main-content {
             .advantages {
                 flex: 0 0 400px;
             }
         }
     }
-    .wrapper-three {
+    .block-device {
         height: auto;
         .main-image {
             display: none;
@@ -620,24 +541,24 @@ h6 {
             width: 100%;
             margin: 50px;
             text-align: center;
-            .main-text__bottom {
+            &__bottom {
                 .two-line-center();
             }
         }
     }
-    .wrapper-five {
+    .block-reviews {
         height: auto;
         background-size: cover;
         .main-content {
             margin: 0 30px;
             flex-wrap: wrap;
             .commentary {
-                .commentary__text {
+                &__text {
                     h3 {
                         font-size: 20px;
                     }
                 }
-                .commentary__user {
+                &__user {
                     max-width: 300px;
                     h5 {
                         font-size: 14px;
@@ -646,20 +567,20 @@ h6 {
             }
         }
     }
-    .wrapper-six {
+    .block-feedback {
         h2 {
             padding: 25px 0;
             line-height: 40px;
         }
     }
-    .wrapper-eight {
+    .block-contacts {
         .main-text {
             margin: 30px 0;
         }
         .contact {
             margin-bottom: 30px;
             flex-wrap: wrap;
-            .contact__block {
+            &__block {
                 margin-bottom: 20px;
             }
         }
@@ -669,14 +590,14 @@ h6 {
                 height: auto;
                 padding-bottom: 20px;
                 width: 100%;
-                .form__text {
+                &__text {
                     padding-top: 20px;
                     input {
                         display: block;
                         margin: 10px auto;
                     }
                 }
-                .form__message {
+                &__message {
                     input {
                         display: block;
                         margin: 10px auto;
@@ -687,6 +608,3 @@ h6 {
         }
     }
 }
-
-
-
