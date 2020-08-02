@@ -1,4 +1,4 @@
-@import 'main-style.less';
+@import 'main-style';
 
 .block-main {
     .max-width-style();
@@ -314,11 +314,12 @@
                 }
             }
         }
-        &:hover {
+        .card:hover {
+            cursor: pointer;
             h3 {
                 color: @color-blue;
             }
-            &__price {
+            .card__price {
                 background-color: @color-blue;
                 p {
                     color: white;
@@ -327,7 +328,7 @@
                     }
                 }
             }
-            &__btn {
+            .card__btn {
                 a {
                     background-color: @color-blue;
                     color: white;
